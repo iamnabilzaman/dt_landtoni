@@ -13,11 +13,64 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-// Goodix
 cc_library_shared {
-    name: "fakelogprint",
-    srcs: ["fakelogprint.cpp"],
-    shared_libs: ["liblog"],
-    compile_multilib: "64",
-    vendor: true
+    name: "libshims_binder",
+    proprietary: true,
+    defaults: ["hidl_defaults"],
+    srcs: [
+        "libshims_binder.cpp",
+    ],
+    cflags: [
+        "-Werror",
+        "-Wextra",
+        "-Wall",
+    ],
+    shared_libs: [
+        "libutils",
+    ],
+}
+
+// libandroid
+cc_library_shared {
+    name: "libshims_android",
+    proprietary: true,
+    defaults: ["hidl_defaults"],
+    srcs: [
+        "libshims_android.cpp",
+    ],
+    cflags: [
+        "-Werror",
+        "-Wextra",
+        "-Wall",
+    ],
+    shared_libs: [
+        "libutils",
+    ],
+}
+
+// libgui
+cc_library_shared {
+    name: "libshims_gui",
+    proprietary: true,
+    defaults: ["hidl_defaults"],
+    srcs: [
+        "libshims_gui.cpp",
+    ],
+    cflags: [
+        "-Werror",
+        "-Wextra",
+        "-Wall",
+    ],
+    shared_libs: [
+        "libgui_vendor",
+    ],
+}
+
+// libshim_camera
+cc_library_shared {
+    name: "libshims_ui",
+    srcs: ["libshims_ui.cpp"],
+    shared_libs: ["libui"],
+    vendor: true,
+    compile_multilib: "32",
 }
