@@ -82,17 +82,17 @@ BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # Filesystem
-TARGET_FS_CONFIG_GEN := $(COMMON_PATH)/config.fs
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # HIDL
-DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
 ifneq ($(TARGET_DEVICE),tiare)
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest-nontiare.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest-nontiare.xml
 endif
 ifeq ($(filter land santoni landtoni prada mi8937,$(TARGET_DEVICE)),)
-DEVICE_MANIFEST_FILE += $(COMMON_PATH)/manifest-vibrator.xml
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest-vibrator.xml
 endif
-DEVICE_MATRIX_FILE := $(COMMON_PATH)/compatibility_matrix.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/compatibility_matrix.xml
 
 
 # Init
@@ -144,15 +144,15 @@ BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := msm8937
 
 # Properties
-TARGET_ODM_PROP += $(COMMON_PATH)/odm.prop
-TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
-TARGET_VENDOR_PROP += $(COMMON_PATH)/vendor.prop
+TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 
 # Recovery
-ifeq ($(TARGET_DEVICE),tiare)
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab_vendor-as-vendor.qcom
+ifeq ($(DEVICE_DEVICE),tiare)
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab_vendor-as-vendor.qcom
 else
-TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab_cust-as-vendor.qcom
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab_cust-as-vendor.qcom
 endif
 TARGET_USERIMAGES_USE_F2FS := true
 TARGET_USERIMAGES_USE_EXT4 := true
