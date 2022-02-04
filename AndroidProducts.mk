@@ -5,17 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_landtoni.mk
+    $(LOCAL_DIR)/octavi_landtoni.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_landtoni-user \
-    lineage_landtoni-userdebug \
-    lineage_landtoni-eng
-
-PRODUCT_MAKEFILES += \
-    $(LOCAL_DIR)/cherish_landtoni.mk
-
-COMMON_LUNCH_CHOICES += \
-    cherish_landtoni-user \
-    cherish_landtoni-userdebug \
-    cherish_landtoni-eng
+    octavi_landtoni-user \
+    octavi_landtoni-userdebug \
+    octavi_landtoni-eng \

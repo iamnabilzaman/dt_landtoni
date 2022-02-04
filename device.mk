@@ -70,10 +70,11 @@ PRODUCT_PACKAGES += \
     XiaomiParts
 
 # Audio
-PRODUCT_COPY_FILE\6 += \    $(LOCAL_PATH)/audio/land_mixer_paths_qrd_sku1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/land_mixer_paths_qrd_sku1.xml
+PRODUCT_COPY_FILE\6 += \
+    $(LOCAL_PATH)/audio/land_mixer_paths_qrd_sku1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/land_mixer_paths_qrd_sku1.xml \
     $(LOCAL_PATH)/audio/santoni_mixer_paths_qrd_sku1.xml:$(TARGET_COPY_OUT_VENDOR)/etc/santoni_mixer_paths_qrd_sku1.xml \
     $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
-    $(LOCAL_PATH)/configs/blank.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_qrd_sku1.xml
+    $(LOCAL_PATH)/configs/blank.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_qrd_sku1.xml \
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
@@ -180,7 +181,6 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libqdMetaData.system \
     libgenlock
-    libtinyxml
 
 # DPM
 PRODUCT_PACKAGES += \
@@ -318,7 +318,6 @@ PRODUCT_PACKAGES += \
 # Perf
 PRODUCT_PACKAGES += \
     libqti-perfd-client
-    vendor.qti.hardware.perf@2.0.vendor
 
 # Permission
 PRODUCT_COPY_FILES += \
@@ -555,4 +554,4 @@ TARGET_BOOT_ANIMATION_RES := 720
 endif # vendor/palladium
 
 # Inherit the proprietary files
-$(call inherit-product, vendor/xiaomi/msm8937-common/msm8937-common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/landtoni/landtoni-vendor.mk)
