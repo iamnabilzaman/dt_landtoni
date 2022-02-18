@@ -148,11 +148,9 @@ PRODUCT_PACKAGES += \
     Snap
 
 # Consumer IR
-ifneq ($(DEVICE),tiare)
 PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
     android.hardware.ir@1.0-service
-endif
 
 # Crypto
 PRODUCT_PACKAGES += \
@@ -226,11 +224,9 @@ PRODUCT_PACKAGES += \
     XiaomiParts
 
 # Gatekeeper HAL
-ifneq ($(DEVICE),tiare)
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service
-endif
 
 # Health
 PRODUCT_PACKAGES += \
@@ -268,11 +264,9 @@ PRODUCT_PACKAGES += \
     IPACM_cfg.xml
 
 # Keymaster HAL
-ifneq ($(DEVICE),tiare)
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
     android.hardware.keymaster@3.0-service
-endif
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -458,9 +452,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUI
 
 # Speed profile services and wifi-service to reduce RAM and storage
-ifneq ($(DEVICE),tiare)
 PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
-endif
 PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
 PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
 USE_DEX2OAT_DEBUG := false
@@ -501,11 +493,9 @@ PRODUCT_COPY_FILES += \
     prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-core/libprotobuf-cpp-lite.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libprotobuf-cpp-lite-v29.so
 
 # Vibrator
-ifeq ($(filter land santoni landtoni prada mi8937,$(DEVICE)),)
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.0-impl \
     android.hardware.vibrator@1.0-service
-endif
 
 # VNDK
 PRODUCT_EXTRA_VNDK_VERSIONS := 30
@@ -531,24 +521,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
-
-# ROM: CherishOS
-ifneq ($(wildcard vendor/cherish),)
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-lineage
-ifneq ($(WITH_GMS),true)
-USE_LAWNCHAIR := true
-endif
-TARGET_BOOT_ANIMATION_RES := 720
-TARGET_INCLUDE_LIVE_WALLPAPERS := false
-endif # vendor/cherish
-
-# ROM: PalladiumOS
-ifneq ($(wildcard vendor/palladium),)
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-palladium
-
-#USE_GAPPS := true
-TARGET_BOOT_ANIMATION_RES := 720
-endif # vendor/palladium
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/landtoni/landtoni-vendor.mk)
