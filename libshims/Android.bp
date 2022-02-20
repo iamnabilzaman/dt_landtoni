@@ -61,9 +61,6 @@ cc_library_shared {
         "-Wextra",
         "-Wall",
     ],
-    shared_libs: [
-        "libgui_vendor",
-    ],
 }
 
 // libshim_camera
