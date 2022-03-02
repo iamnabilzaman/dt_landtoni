@@ -18,17 +18,13 @@ soong_config_module_type {
 
 soong_config_string_variable {
     name: "VENDOR_PARTITION",
-    values: ["cust", "vendor"],
+    values: ["vendor"],
 }
 
 xiaomi_msm8937_rootdir_prebuilt_etc {
     name: "fstab.qcom",
-    src: "etc/fstab_cust-as-vendor.qcom",
     soong_config_variables: {
         VENDOR_PARTITION: {
-            cust: {
-                src: "etc/fstab_cust-as-vendor.qcom",
-            },
             vendor: {
                 src: "etc/fstab_vendor-as-vendor.qcom",
             },
