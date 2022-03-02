@@ -10,6 +10,15 @@ ro.vendor.qti.va_aosp.support=1
 # IORap
 persist.device_config.runtime_native_boot.iorap_readahead_enable=true
 
+# Octavi custom stuff
+ro.octavi.maintainer=iamnabilzaman
+ro.octavi.hw.cam=13MP:5MP
+ro.octavi.hw.cpu=Qualcomm MSM8937(28nm)
+
+# Time
+persist.backup.ntpServer=0.pool.ntp.org
+persist.timed.enable=true
+
 # ZRAM
 ro.zram.mark_idle_delay_mins=60
 ro.zram.first_wb_delay_mins=1440
@@ -17,6 +26,3 @@ ro.zram.periodic_wb_delay_hours=24
 
 # Zygote Preforking
 persist.device_config.runtime_native.usap_pool_enabled=true
-
-# Octavi Maintainer
-ro.octavi.maintainer=krxyzn
